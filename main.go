@@ -54,7 +54,7 @@ type Claims struct {
 
 // Initialize the database connection
 func initDB() {
-	connStr := "user=nishantdalal password=645851 dbname=my_database sslmode=disable"
+	connStr := "user=nishant password=nishant dbname=trademarkia sslmode=disable"
 	var err error
 	db, err = sql.Open("postgres", connStr)
 	if err != nil {
