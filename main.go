@@ -254,7 +254,7 @@ func uploadFileHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Encrypt the file content
-	encryptionKey := []byte("a very secret key, quite long!") // Exactly 24 characters
+	encryptionKey := []byte("a very secret and long key 123!") // 32 bytes key for AES-256
 	encryptedContent, err := encryptFile(fileBytes, encryptionKey)
 	if err != nil {
 		http.Error(w, "Error encrypting file: "+err.Error(), http.StatusInternalServerError)
