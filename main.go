@@ -232,6 +232,7 @@ func jwtMiddleware(next http.Handler) http.Handler {
 
 // File upload handler with detailed error handling
 // Upload File Handler with encryption
+// Upload File Handler with encryption
 func uploadFileHandler(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseMultipartForm(10 << 20) // 10MB max
 	if err != nil {
@@ -253,8 +254,8 @@ func uploadFileHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Encrypt the file content
-	encryptionKey := []byte("a very secret and long key 123!") // 32 bytes key for AES-256
+	// Encrypt the file content with a valid 32-byte key for AES-256
+	encryptionKey := []byte("a very secret and long key 1234!") // Now exactly 32 bytes
 	encryptedContent, err := encryptFile(fileBytes, encryptionKey)
 	if err != nil {
 		http.Error(w, "Error encrypting file: "+err.Error(), http.StatusInternalServerError)
