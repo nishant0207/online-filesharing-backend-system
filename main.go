@@ -130,6 +130,7 @@ func generatePresignedURL(sess *session.Session, fileName string) (string, error
 }
 
 // Registration handler
+// Registration handler
 func registerHandler(w http.ResponseWriter, r *http.Request) {
 	var user User
 	err := json.NewDecoder(r.Body).Decode(&user)
@@ -144,9 +145,11 @@ func registerHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, err = db.Exec("INSERT INTO users (email, password_hash, created_at) VALUES ($1, $2, $3)",
-		user.Email, string(hashedPassword), time.Now())
+	// Attempt to insert user into the database
+	_, err = db.Exec("INSERT INTO users (email, password_hash, created_at) VALUES ($1, $2, $3)", user.Email, string(hashedPassword), time.Now())
 	if err != nil {
+		// Log the error for debugging
+		log.Printf("Error inserting user: %v", err)
 		http.Error(w, "Error creating user", http.StatusInternalServerError)
 		return
 	}
