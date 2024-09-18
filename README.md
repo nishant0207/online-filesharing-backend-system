@@ -122,7 +122,7 @@ Create an `.env` file to store sensitive data such as the JWT secret and AES enc
 
 ```bash
 JWT_SECRET="your_jwt_secret_key"
-ENCRYPTION_KEY="a very secret and long key 1234!"
+ENCRYPTION_KEY="a very secret key"
 AWS_S3_BUCKET="your_bucket_name"
 ```
 
