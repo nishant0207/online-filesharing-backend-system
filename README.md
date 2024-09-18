@@ -71,9 +71,9 @@ go mod tidy
 Create a new PostgreSQL database and user.
 
 ```sql
-CREATE DATABASE trademarkia;
-CREATE USER nishant WITH PASSWORD 'nishant';
-GRANT ALL PRIVILEGES ON DATABASE trademarkia TO nishant;
+CREATE DATABASE <database_name>;
+CREATE USER <username> WITH PASSWORD '<password>';
+GRANT ALL PRIVILEGES ON DATABASE <database_name> TO <username>;
 ```
 
 Create necessary tables:
